@@ -1,0 +1,73 @@
+
+
+create table usuarios (
+id         		int	    NOT NULL auto_increment,
+nome        		varchar(50) NOT NULL,
+email       		varchar(50),
+senha       		varchar(20) NOT NULL,
+perfil      		varchar(20) not null,
+telefone1   		varchar(15),
+telefone2   		varchar(15),
+celular1    		varchar(15),
+celular2    		varchar(15),
+situacao    		varchar(20),
+
+data_cadastro       	date        not null,
+usuario_cadastrou   	int         not null,
+data_alteracao      	date,
+usuario_alterou     	int,
+PRIMARY KEY  (id)
+) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8;
+
+INSERT INTO `usuarios` (`nome`, `email`, `senha`,perfil,situacao) VALUES
+('Fabio Laba Moreira','fabiolabamoreira@gmail.com', 'teste','Administrador','Ativo');
+
+
+create table cotacoes (
+id         		int	    	NOT NULL auto_increment,
+cd_usuario		bigint UNSIGNED		not null,
+moeda_destino		varchar(3)	not null,
+cotacao_moeda_destino	decimal(9,2)	not null default 0,
+valor_conversao		decimal(9,2)	not null default 0,
+forma_pagamento		varchar(20)	not null,
+taxa_pagamento		decimal(9,2)	not null default 0,
+taxa_conversao		decimal(9,2)	not null default 0,
+created_at		timestamp,
+updated_at		timestamp,
+PRIMARY KEY  (id),
+foreign key (cd_usuario) references users (id)
+);
+
+create table taxas (
+id         		int	    	NOT NULL auto_increment,
+cd_usuario		bigint UNSIGNED		not null,
+taxa_boleto		decimal(9,2)	not null default 0,
+taxa_cartao_credito	decimal(9,2)	not null default 0,
+valor_base		decimal(9,2)	not null default 0,
+taxa_acima_valor_base	decimal(9,2)	not null default 0,
+taxa_abaixo_valor_base	decimal(9,2)	not null default 0,
+created_at		timestamp,
+updated_at		timestamp,
+
+foreign key (cd_usuario) references users (id),
+PRIMARY KEY  (id)
+)
+
+insert into taxas (
+cd_usuario,
+taxa_boleto,
+taxa_cartao_credito,
+valor_base,
+taxa_acima_valor_base,
+taxa_abaixo_valor_base,
+created_at
+) 
+values (
+1,
+1.45,
+7.63,
+3000,
+1,
+2,
+now()
+);

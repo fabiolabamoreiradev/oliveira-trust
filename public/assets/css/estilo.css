@@ -1,0 +1,50 @@
+.material-icons, .material-symbols-outlined {
+    vertical-align: bottom;
+}
+
+table.listagem {
+    border-collapse: separate;
+    font-size: 14px;
+    width: 100%;
+    padding:10px;
+}
+
+table {
+    font-size: 14px;
+    width: 100%;
+    border-collapse: separate;
+    font-size: 14px;
+    width: 100%;
+    border-style: solid;
+    border-width: 1px 0 1px 1px;
+    padding:10px;
+    border: 1px solid #000;
+}
+
+.sucesso {
+    color: #1e620f;
+    border-color: #7cd362;
+    background: #d3ffc6;
+    position: relative;
+    padding: 10px;
+    text-align: left;
+    border-width: 0;
+    border-style: solid;
+}
+
+.minimo {
+    color:#FF0000;
+}
+
+.maximo {
+    color:#7cd362;
+}
+
+.cotacao-linha{
+    display:flex;
+}
+
+.cotacao {
+    display:flex;
+    width:30%;
+}
